@@ -1,0 +1,73 @@
+﻿@page
+@model CihanAbay.Pages.Products.EditModel
+@{
+}
+@{
+    ViewData["Title"] = "Edit";
+}
+<link rel="stylesheet" href="~/css/Index/Index.css">
+<h1>Edit</h1>
+
+<h4>Product</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group" style="display:none;">
+                <label asp-for="Product.id" class="control-label"></label>
+                <input asp-for="Product.id" class="form-control" />
+                <span asp-validation-for="Product.id" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Product.Name" class="control-label"></label>
+                <input asp-for="Product.Name" class="form-control" />
+                <span asp-validation-for="Product.Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Product.ImageUrl" class="control-label"></label>
+                <input asp-for="Product.ImageUrl" class="form-control" />
+                <span asp-validation-for="Product.ImageUrl" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Product.NetAmount" class="control-label"></label>
+                <input asp-for="Product.NetAmount" class="form-control" />
+                <span asp-validation-for="Product.NetAmount" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Product.Tax" class="control-label"></label>
+                <input asp-for="Product.Tax" class="form-control" />
+                <span asp-validation-for="Product.Tax" class="text-danger"></span>
+            </div>
+             <div class="form-group">
+               @Html.CheckBoxFor(x=>x.Product.IsActive)
+                <label for="isActive">isActive</label>
+            </div>
+            <div class="form-group" style="display:none;">
+                <label asp-for="Product.CreatorId" class="control-label"></label>
+                <input asp-for="Product.CreatorId" class="form-control" />
+                <span asp-validation-for="Product.CreatorId" class="text-danger"></span>
+            </div>
+              <div class="form-group" style="display:none;">
+                <label asp-for="Product.CreationTime" class="control-label"></label>
+                <input asp-for="Product.CreationTime" class="form-control" />
+                <span asp-validation-for="Product.CreationTime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    }
